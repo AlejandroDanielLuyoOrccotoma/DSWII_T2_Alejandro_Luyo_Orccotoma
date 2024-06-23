@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
-import pe.cibertec.examen.T2_Alejandro_Luyo.service.FileStorageService;
+import pe.cibertec.examen.T2_Alejandro_Luyo.service.FileService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +18,7 @@ public class FileController {
     private static final List<String> ALLOWED_EXTENSIONS = Arrays.asList("pdf", "png", "docx");
 
     @Autowired
-    private FileStorageService fileStorageService;
+    private FileService fileService;
 
     @PostMapping("/uploadFile")
     public ResponseEntity<String> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
@@ -28,7 +28,7 @@ public class FileController {
 
         for (MultipartFile file : files) {
             validateFileExtension(file);
-            fileStorageService.storeFile(file);
+            fileService.storeFile(file);
         }
 
         return new ResponseEntity<>("Archivos subidos exitosamente", HttpStatus.OK);

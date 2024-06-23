@@ -10,11 +10,11 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 @Service
-public class FileStorageService {
+public class FileService {
 
     private final Path fileStorageLocation;
 
-    public FileStorageService() {
+    public FileService() {
         this.fileStorageLocation = Paths.get("file_storage")
                 .toAbsolutePath().normalize();
 
