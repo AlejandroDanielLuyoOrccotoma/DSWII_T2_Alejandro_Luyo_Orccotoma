@@ -9,22 +9,14 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "Personaje")
+@Table(name = "personaje")
 public class Personaje {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IdPersonaje")
     private Integer idPersonaje;
-
-    @Column(name = "NomPersonaje", nullable = false, length = 50)
     private String nomPersonaje;
-
-    @Column(name = "ApePersonaje", nullable = false, length = 50)
     private String apePersonaje;
-
-    @Column(name = "FechNacPersonaje", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fechNacPersonaje;
-
 }
